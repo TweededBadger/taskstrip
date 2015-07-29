@@ -1,5 +1,6 @@
 from tools import image
 import time
+import sys
 
 from neopixel import *
 
@@ -14,7 +15,7 @@ LED_INVERT     = False   # True to invert the signal (when using NPN transistor 
 
 
 if __name__ == '__main__':
-    colors = image.convert_to_colors('icons/pound.png')
+    colors = image.convert_to_colors(sys.argv[1])
     strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS)
     strip.begin()
     for i, color in enumerate(colors):
